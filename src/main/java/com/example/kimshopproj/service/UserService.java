@@ -19,13 +19,13 @@ public class UserService {
 
 
     public String registerUser(User user) {
-
+               // 만들어진 아이디 중복사용을 막아줌
         Optional<User> existingUserByUsername = userRepository.findByUsername(user.getUsername());
         if (existingUserByUsername.isPresent()) {
             return "이미 존재하는 아이디입니다.";
         }
 
-
+             // 만들어진 이메일 중복사용을 막아줌
         Optional<User> existingUserByEmail = userRepository.findByEmail(user.getEmail());
         if (existingUserByEmail.isPresent()) {
             return "이미 존재하는 이메일입니다.";

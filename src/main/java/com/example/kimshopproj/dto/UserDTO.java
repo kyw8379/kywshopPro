@@ -39,7 +39,7 @@ public class UserDTO {
     @NotBlank
     private String bankAccount;
 
-    // Getters and Setters
+
 
     public Long getUserId() {
         return userId;

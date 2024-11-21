@@ -1,9 +1,6 @@
 package com.example.kimshopproj.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -24,32 +21,28 @@ public class User {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long userId;
 
-        @NotBlank
         @Size(min = 4, max = 20)
         private String username;
 
-        @NotBlank
         @Size(min = 8, max = 16)
         private String password;
 
-        @NotBlank
         @Size(min = 2, max = 8)
+
         private String fullName;
 
         private LocalDate birthDate;
 
-        @NotBlank
+
+        @Column(unique = true, nullable = false)
         @Size(min = 10, max = 15)
         private String phoneNumber;
 
-        @NotBlank
         private String address;
 
-        @NotBlank
         @Email
         private String email;
 
-        @NotBlank
         private String bankAccount;
 
 
